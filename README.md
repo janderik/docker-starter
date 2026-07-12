@@ -1,66 +1,28 @@
 # Docker Starter
 
-[![Docker](https://img.shields.io/badge/Docker-24-blue.svg)](https://www.docker.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+![Docker](https://img.shields.io/badge/Docker-24+-blue.svg) ![Python](https://img.shields.io/badge/Python-3.9+-blue.svg) ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-A collection of Docker Compose templates for common application stacks. Quickly start development environments with pre-configured services.
+Ready-to-use Docker templates and a Python generator.
 
-## Features
+## Templates
 
-- **20+ templates** - Ready-to-use Docker Compose configurations
-- **Multiple stacks** - Web servers, databases, message queues, monitoring
-- **Easy customization** - Environment variable configuration
-- **Production-ready** - Best practices included
-- **One-click start** - Simple command to launch any stack
+| Template | Services |
+|----------|----------|
+| full-stack | React + FastAPI + PostgreSQL + Redis |
+| web-app | Nginx + App + PostgreSQL |
+| monitoring | Prometheus + Grafana + Loki |
 
-## Available Templates
-
-### Web Servers
-- nginx-proxy
-- apache-proxy
-- caddy
-
-### Databases
-- postgres
-- mysql
-- mongodb
-- redis
-- elasticsearch
-
-### Full Stacks
-- lamp
-- mean
-- mern
-- python-flask-postgres
-
-### Monitoring
-- prometheus-grafana
-- elk-stack
-
-## Installation
+## Quick Start
 
 ```bash
-git clone https://github.com/janderik/docker-starter.git
-cd docker-starter
+cp -r templates/full-stack my-project
+cd my-project && docker compose up -d
+
+# Or generate custom config
+pip install -r requirements.txt
+python generator.py --services api db cache -o docker-compose.yml
 ```
-
-## Usage
-
-```bash
-# List available templates
-python src/generator.py list
-
-# Generate a template
-python src/generator.py create nginx-proxy
-
-# Start a stack
-docker-compose -f templates/nginx-proxy/docker-compose.yml up -d
-```
-
-## Contributing
-
-Contributions are welcome!
 
 ## License
 
-MIT License
+MIT
